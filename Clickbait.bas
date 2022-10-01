@@ -1,9 +1,5 @@
 Attribute VB_Name = "Clickbait"
 'This file is an example of Feature Engineering.
-'All of the Subs listed below in Sub Main produce values that an ML classifier can process and used to classify distinct types of text.
-'We will look at this process for A3 and in the ML lecture.
-
-'I wrote most of this code during the lecture but I left out the last two subs with Nested Loops - I will go over these.
 
 Option Explicit
 
@@ -27,7 +23,6 @@ Sub StartsWithNumber()
     Dim line As Integer
     line = 2
     
-    'NOTE: Normal For loops with LBound(...) and UBound(...) calls could have been used here.
     'loop over each line of clickbait
     For Each strClickbait In clickbaits
         'split each line into individual words
@@ -65,7 +60,7 @@ Sub CalcCBCharLength()
     
 End Sub
 
-'pretty much same as above, but count the number of words instead of characters
+'same as above, but count the number of words instead of characters
 Sub CalcCBWordLength()
     
     Dim clickbaits As Range
@@ -85,7 +80,6 @@ Sub CalcCBWordLength()
 End Sub
 
 'go through each line of clickbait, if they start with "Here's" then highlight red
-'some info on the color indices https://docs.microsoft.com/en-us/office/vba/api/excel.colorindex
 Sub HighlightLikelyCB()
     Dim clickbaits As Range
     Set clickbaits = Range("A2:A49")
@@ -155,9 +149,6 @@ Sub CheckForStopWords()
 End Sub
 
 'This is pretty much a copy + paste of the above.
-'This is bad practice in Software Engineering and it usually means code quality is low
-'but we can get away with it in short programs like this.
-'The only difference is that CheckForPronounWords uses a different range.
 Sub CheckForPronounWords()
     Dim clickbaits As Range
     Set clickbaits = Range("A2:A49")
